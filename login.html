@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+  <head>
+    <title>Login page Tienda mibarrio.com Grupo11 O20</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link href="css/login.css" rel="stylesheet" id="login-css" />
+  </head>
+
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first my-5">
+          <img src="images/MIBA.jpeg" id="icon" alt="Tienda Mibarrio.com logo" />
+        </div>
+
+        <div>
+          <p id="error-text" class="text-danger"></p>
+        </div>
+        <div>
+          <p id="message-text" class="text-success"></p>
+        </div>
+        <!-- Login Form -->
+        <form onsubmit="login(); return false;" action="" method="post">
+          <input
+            required
+            type="text"
+            id="username"
+            class="fadeIn second"
+            name="username"
+            placeholder="username"
+          />
+          <input
+            required
+            type="password"
+            id="password"
+            class="fadeIn third"
+            name="password"
+            placeholder="password"
+          />
+          <input type="submit" class="fadeIn fourth mt-3" value="Log In" />
+        </form>
+        <a class="text-info mb-3" href="signup.html">Sign Up</a>
+      </div>
+    </div>
+	  <script src="js/auth.js"></script>
+    <script src="js/request.js"></script>
+    <script src="js/user.js"></script>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const message = params.get("message");
+      const error = params.get("error");
+      window.onload = function () {
+        if (message) {
+          const messageElement = document.getElementById("message-text");
+          messageElement.innerText = message;
+        } else if (error) {
+          const errorElement = document.getElementById("error-text");
+          errorElement.innerText = error;
+        }
+      };
+    </script>
+  </body>
+</html>
