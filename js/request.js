@@ -1,5 +1,5 @@
-const url = "https://minticloud.uis.edu.co/c3s20grupo11/";
-//const url = "http://localhost:8080/"
+//const url = "https://minticloud.uis.edu.co/c3s20grupo11/";
+const url = "http://localhost:8080/"
 
 async function sendRequest(endPoint, method, data) {
   const myHeaders = new Headers();
